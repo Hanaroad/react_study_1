@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <span>Total clicks : 0</span>
-    <button id="btn">Click me</button>
+    <div id="root"></div>
   </body>
+  <script
+    crossorigin
+    src="https://unpkg.com/react@18/umd/react.production.min.js"
+  ></script>
+  <script
+    crossorigin
+    src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+  ></script>
   <script>
-    let counter = 0;
-    const button = document.getElementById('btn');
-    const span = document.querySelector('span');
-    function handleClick() {
-      //   counter = counter + 1;
-      counter++;
-      console.log(counter);
-      span.innerText = `Total clicks : ${counter}`;
-    }
-    button.addEventListener('click', handleClick);
+    const root = document.getElementById('root');
+    // const span = React.createElement('span'); // 유효한 html 태그 어느것이든 쓸 수 있음.
+    // const span = React.createElement('span', { id: 'hana-span' }); // 두번째 argument로 둘 수 있는 것은 앞의 span의 property(즉, id나 class) \ but, 아직 span은 비어있음
+    const span = React.createElement(
+      'span',
+      { id: 'hana-span', style: { color: 'red' } },
+      "Hello, I'm a span"
+    ); // 그러므로 세번째 argument로 span을 채워줄 것임.
+    ReactDOM.render(span, root);
   </script>
 </html>
